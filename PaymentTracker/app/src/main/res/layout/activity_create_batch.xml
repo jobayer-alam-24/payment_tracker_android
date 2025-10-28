@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/create"
+    android:padding="30dp"
+    android:gravity="center_horizontal"
+    android:background="@color/appBackground">
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="Add A New Batch"
+        android:textColor="@color/white"
+        android:backgroundTint="#087935" />
+    <EditText
+        android:id="@+id/etBatchName"
+        android:hint="Batch Name"
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/greenButton"
+        android:textColor="@color/darkGreenText"
+        android:textColorHint="@color/darkGreenText" />
+
+    <EditText
+        android:id="@+id/etStartDate"
+        android:layout_margin="15dp"
+        android:hint="Start Date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/greenButton"
+        android:textColor="@color/darkGreenText"
+        android:textColorHint="@color/darkGreenText" />
+
+    <EditText
+        android:id="@+id/etFee"
+        android:hint="Monthly Fee"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/greenButton"
+        android:textColor="@color/darkGreenText"
+        android:layout_margin="15dp"
+        android:textColorHint="@color/darkGreenText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSaveBatch"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="Save Batch"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/greenButton" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/home"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:textColor="@color/white"
+        android:backgroundTint="#087935" />
+</LinearLayout>

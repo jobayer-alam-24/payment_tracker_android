@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Main background: dark teal green -->
+    <color name="appBackground">#0F2F2F</color>
+
+    <!-- Primary accent: emerald green -->
+    <color name="greenButton">#1ABC9C</color>
+
+    <!-- Text: light mint / white tone -->
+    <color name="darkGreenText">#E8F8F5</color>
+
+    <!-- Card: deep greenish gray -->
+    <color name="cardBackground">#1E3A3A</color>
+
+    <!-- Slight glowing border / shadow -->
+    <color name="cardAccent">#27AE60</color>
+</resources>

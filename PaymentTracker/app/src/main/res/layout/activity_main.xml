@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appBackground">
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:text="Batch Payment Tracker"
+            android:textColor="@color/darkGreenText"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="40dp"
+            android:clipToOutline="true"
+            android:layout_gravity="center"
+            android:padding="35dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="900dp"
+            app:cardElevation="5dp">
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="200dp"
+                android:layout_height="130dp"
+                android:gravity="center"
+                android:text="Your Text Here"
+                android:layout_gravity="center"
+                android:textColor="#e71272"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCreateBatch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/greenButton"
+            android:text="Create Batch"
+            android:textColor="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnViewBatches"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/greenButton"
+            android:text="View Batches"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <!-- Copyright TextView -->
+    <TextView
+        android:id="@+id/tvCopyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="© 2025 Batch Payment Tracker By Jobayer Alam"
+        android:textColor="@color/darkGreenText"
+        android:textSize="12sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp" />
+</RelativeLayout>

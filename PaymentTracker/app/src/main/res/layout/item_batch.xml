@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@color/appBackground"> <!-- Dark modern card background -->
+
+    <LinearLayout
+        android:id="@+id/batchCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <!-- Batch Name -->
+        <TextView
+            android:id="@+id/tvBatchName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Batch Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF" />
+
+        <!-- Start Date -->
+        <TextView
+            android:id="@+id/tvStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Date: 12 Oct 2025"
+            android:textSize="14sp"
+            android:textColor="#B0BEC5"
+            android:layout_marginTop="4dp"/>
+
+        <!-- Monthly Fee -->
+        <TextView
+            android:id="@+id/tvFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monthly Fee: $50"
+            android:textSize="14sp"
+            android:textColor="#80CBC4"
+            android:layout_marginTop="2dp"/>
+
+        <!-- Delete Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDeleteBatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete Batch"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#E53935"
+            android:layout_marginTop="12dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textStyle="bold"
+            android:elevation="3dp"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
