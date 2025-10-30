@@ -13,7 +13,7 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "batch_payment.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     // Batch table
     public static final String TABLE_BATCH = "batches";
@@ -30,9 +30,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Monthly Payment Table
     public static final String TABLE_MONTHLY_PAYMENT = "monthly_payments";
     public static final String COLUMN_PAYMENT_ID = "id";
+
     public static final String COLUMN_PAYMENT_STUDENT_ID = "student_id";
     public static final String COLUMN_PAYMENT_MONTH = "month"; // 1-12
     public static final String COLUMN_PAYMENT_PAID = "paid"; // 0 or 1
+    public static final String COLUMN_PAYMENT_CUSTOM_FEE = "custom_fee"; // stores custom fee if any
+
     //Monthly payment creation
     private static final String CREATE_TABLE_MONTHLY_PAYMENT =
             "CREATE TABLE " + TABLE_MONTHLY_PAYMENT + " (" +
@@ -40,6 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_PAYMENT_STUDENT_ID + " INTEGER, " +
                     COLUMN_PAYMENT_MONTH + " INTEGER, " +
                     COLUMN_PAYMENT_PAID + " INTEGER DEFAULT 0, " +
+                    COLUMN_PAYMENT_CUSTOM_FEE + " REAL DEFAULT NULL, " +
                     "FOREIGN KEY(" + COLUMN_PAYMENT_STUDENT_ID + ") REFERENCES " + TABLE_STUDENT + "(" + COLUMN_STUDENT_ID + ")" +
                     ");";
     // Batch table creation
@@ -90,6 +94,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long result = db.insert(TABLE_BATCH, null, values);
         db.close();
         return result != -1;
+    }
+    public void updateCustomFee(int studentId, int month, double customFee) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_PAYMENT_CUSTOM_FEE, customFee);
+
+        int updated = db.update(TABLE_MONTHLY_PAYMENT, values,
+                COLUMN_PAYMENT_STUDENT_ID + "=? AND " + COLUMN_PAYMENT_MONTH + "=?",
+                new String[]{String.valueOf(studentId), String.valueOf(month)});
+
+        if (updated == 0) {
+            values.put(COLUMN_PAYMENT_STUDENT_ID, studentId);
+            values.put(COLUMN_PAYMENT_MONTH, month);
+            db.insert(TABLE_MONTHLY_PAYMENT, null, values);
+        }
+        db.close();
     }
 
     public boolean deleteBatch(int id) {
@@ -170,7 +190,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     if (paid) countPaid++;
                 }
 
-                total += countPaid * feePerMonth;
+                // Get custom fees for this student
+                Cursor feeCursor = db.rawQuery(
+                        "SELECT " + COLUMN_PAYMENT_CUSTOM_FEE + " FROM " + TABLE_MONTHLY_PAYMENT +
+                                " WHERE " + COLUMN_PAYMENT_STUDENT_ID + "=?",
+                        new String[]{String.valueOf(studentId)});
+
+                double customTotal = 0;
+                if (feeCursor.moveToFirst()) {
+                    do {
+                        double custom = feeCursor.isNull(0) ? 0 : feeCursor.getDouble(0);
+                        customTotal += custom;
+                    } while (feeCursor.moveToNext());
+                }
+                feeCursor.close();
+
+
+                total += (countPaid * feePerMonth) + customTotal;
 
             } while (cursor.moveToNext());
 
@@ -179,6 +215,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return total;
     }
+
 
 
     // Update a month payment

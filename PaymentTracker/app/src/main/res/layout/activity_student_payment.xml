@@ -23,107 +23,94 @@
             android:gravity="center"
             android:layout_marginBottom="16dp" />
 
+        <!-- Month checkboxes + custom fee buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- 12 Checkboxes -->
-            <CheckBox
-                android:id="@+id/cbJan"
+            <!-- Repeat this block for each month -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="January"
-                android:textColor="#000000" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
 
-            <CheckBox
-                android:id="@+id/cbFeb"
-                android:text="February"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
+                <CheckBox
+                    android:id="@+id/cbJan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="January"
+                    android:textColor="#000000" />
 
-            <CheckBox
-                android:id="@+id/cbMar"
-                android:text="March"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
+                <Button
+                    android:id="@+id/btnCustomJan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Custom Fee"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/greenButton"
+                    android:textColor="#FFFFFF" />
 
-            <CheckBox
-                android:id="@+id/cbApr"
-                android:text="April"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
+            </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/cbMay"
-                android:text="May"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
+            <!-- Copy and change IDs/texts for Feb-Dec -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <CheckBox android:id="@+id/cbFeb" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="February" android:textColor="#000000"/>
+                <Button android:id="@+id/btnCustomFeb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Fee" android:layout_marginStart="8dp" android:backgroundTint="@color/greenButton" android:textColor="#FFFFFF"/>
+            </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/cbJun"
-                android:text="June"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <CheckBox android:id="@+id/cbMar" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="March" android:textColor="#000000"/>
+                <Button android:id="@+id/btnCustomMar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Fee" android:layout_marginStart="8dp" android:backgroundTint="@color/greenButton" android:textColor="#FFFFFF"/>
+            </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/cbJul"
-                android:text="July"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <CheckBox android:id="@+id/cbApr" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="April" android:textColor="#000000"/>
+                <Button android:id="@+id/btnCustomApr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Fee" android:layout_marginStart="8dp" android:backgroundTint="@color/greenButton" android:textColor="#FFFFFF"/>
+            </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/cbAug"
-                android:text="August"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <CheckBox android:id="@+id/cbMay" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="May" android:textColor="#000000"/>
+                <Button android:id="@+id/btnCustomMay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Fee" android:layout_marginStart="8dp" android:backgroundTint="@color/greenButton" android:textColor="#FFFFFF"/>
+            </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/cbSep"
-                android:text="September"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <CheckBox android:id="@+id/cbJun" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="June" android:textColor="#000000"/>
+                <Button android:id="@+id/btnCustomJun" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Fee" android:layout_marginStart="8dp" android:backgroundTint="@color/greenButton" android:textColor="#FFFFFF"/>
+            </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/cbOct"
-                android:text="October"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <CheckBox android:id="@+id/cbJul" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="July" android:textColor="#000000"/>
+                <Button android:id="@+id/btnCustomJul" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Fee" android:layout_marginStart="8dp" android:backgroundTint="@color/greenButton" android:textColor="#FFFFFF"/>
+            </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/cbNov"
-                android:text="November"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <CheckBox android:id="@+id/cbAug" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="August" android:textColor="#000000"/>
+                <Button android:id="@+id/btnCustomAug" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Fee" android:layout_marginStart="8dp" android:backgroundTint="@color/greenButton" android:textColor="#FFFFFF"/>
+            </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/cbDec"
-                android:text="December"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <CheckBox android:id="@+id/cbSep" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="September" android:textColor="#000000"/>
+                <Button android:id="@+id/btnCustomSep" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Fee" android:layout_marginStart="8dp" android:backgroundTint="@color/greenButton" android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <CheckBox android:id="@+id/cbOct" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="October" android:textColor="#000000"/>
+                <Button android:id="@+id/btnCustomOct" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Fee" android:layout_marginStart="8dp" android:backgroundTint="@color/greenButton" android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <CheckBox android:id="@+id/cbNov" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="November" android:textColor="#000000"/>
+                <Button android:id="@+id/btnCustomNov" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Fee" android:layout_marginStart="8dp" android:backgroundTint="@color/greenButton" android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <CheckBox android:id="@+id/cbDec" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="December" android:textColor="#000000"/>
+                <Button android:id="@+id/btnCustomDec" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Fee" android:layout_marginStart="8dp" android:backgroundTint="@color/greenButton" android:textColor="#FFFFFF"/>
+            </LinearLayout>
 
         </LinearLayout>
 
